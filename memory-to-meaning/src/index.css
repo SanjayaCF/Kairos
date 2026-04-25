@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply bg-ink-900 text-ink-50; }
+  body { @apply font-sans antialiased; }
+  h1, h2, h3 { @apply font-display; }
+}
+
+/* Custom scrollbar for timeline and any overflow-x scroll areas */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 3px;
+  width: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #4A4438;
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #6A6355;
+}
