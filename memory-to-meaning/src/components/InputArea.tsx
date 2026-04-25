@@ -36,6 +36,7 @@ export function InputArea({
   history,
   onDeleteHistory,
   onViewHistory,
+  onOpenMonad,
 }: {
   onSubmit: (text: string) => void
   error: string | null

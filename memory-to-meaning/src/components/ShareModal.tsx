@@ -66,7 +66,7 @@ export function ShareModal({
     const blob = await generateImage()
     if (!blob) return
     const file = new File([blob], `kairos-story-${Date.now()}.png`, { type: 'image/png' })
-    if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+    if (typeof navigator.share === 'function' && 'canShare' in navigator && navigator.canShare({ files: [file] })) {
       await navigator.share({
         title: t.yourStory,
         text: memory.storySummary.slice(0, 100) + '...',
@@ -180,10 +180,10 @@ export function ShareModal({
 
                     <div className="p-4 bg-ink-950/50 rounded-xl border border-ink-800">
                       <span className="text-xs font-sans font-medium text-amber-500/80 uppercase tracking-widest block mb-2">
-                        {memory.insight.theme}
+                        {t.insight || "Insight"}
                       </span>
                       <p className="text-sm text-ink-300 line-clamp-3">
-                        {memory.insight.description}
+                        {memory.insight}
                       </p>
                     </div>
                   </div>
@@ -236,7 +236,7 @@ export function ShareModal({
                   <span className="text-xs font-medium">Facebook</span>
                 </button>
 
-                {navigator.share && navigator.canShare && (
+                {typeof navigator.share === 'function' && 'canShare' in navigator && (
                   <button
                     onClick={handleNativeShare}
                     disabled={isGenerating}

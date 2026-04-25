@@ -1,7 +1,6 @@
 import { useState, useRef } from "react"
-import { RotateCcw, BookOpen, Link, Share, CheckCircle2 } from "lucide-react"
+import { RotateCcw, BookOpen, Share } from "lucide-react"
 import { motion } from "framer-motion"
-import html2canvas from "html2canvas"
 import { InsightPanel } from "./InsightPanel"
 import { MemoryCard } from "./MemoryCard"
 import { Timeline } from "./Timeline"
@@ -29,6 +28,7 @@ export function ResultScreen({
   memory,
   onReset,
   language,
+  onOpenMonad,
 }: {
   memory: ParsedMemory
   onReset: () => void
